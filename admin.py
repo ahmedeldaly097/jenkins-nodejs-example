@@ -1,5 +1,4 @@
 name = 'ahmed eldaly'
 for i in name:
-    print(i+'1'
-            )
+    print(i+'1')
 print(name)
