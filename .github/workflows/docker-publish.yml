@@ -17,6 +17,6 @@ jobs:
 
       - name: Run tests
         run: |
-            docker build . --file dockerfile -t mahmom/jenkins_iti:v1.10
+            docker build . --file dockerfile -t ahmedeldaly097/jenkins:v1.0
             docker login -u ${{ secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
-            docker push mahmom/jenkins_iti:v1.10
+            docker push ahmedeldaly097/jenkins:v1.0
