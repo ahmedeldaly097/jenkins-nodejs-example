@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('preparation') {
+            steps {
+                git 'https://github.com/ahmedeldaly097/jenkins-nodejs-example.git'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'docker build -f dockerfile . -t ahmedeldaly097/jenkins_eldaly:v1.0'
+            }
+        }
+        stage('artifact') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'pass', usernameVariable: 'username')]){
+                sh 'docker login -u ${username} -p ${pass}'
+                sh 'docker push ahmedeldaly097/jenkins_eldaly:v1.0'
+            }
+           }
+        }
+        stage('deploy') {
+            steps {
+                sh 'docker run -d -p 3000:3000 ahmedeldaly097/jenkins_eldaly:v1.0'
+            }
+        }
+    }
+}
+
+
+// docker run -d --name jenkins_restart_2 -v /var/run/docker.sock:/var/run/docker.sock -p 9091:8080 jenkins-day2
