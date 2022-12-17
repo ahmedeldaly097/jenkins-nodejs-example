@@ -22,6 +22,3 @@ pipeline {
         }
     }
 }
-
-
-// docker run -d --name jenkins_restart_2 -v /var/run/docker.sock:/var/run/docker.sock -p 9091:8080 jenkins-day2
