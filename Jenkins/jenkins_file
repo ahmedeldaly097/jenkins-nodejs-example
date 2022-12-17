@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('preparation') {
-            steps {
-                git 'https://github.com/ahmedeldaly097/jenkins-nodejs-example.git'
-            }
-        }
         stage('build') {
             steps {
                 sh 'docker build -f dockerfile . -t ahmedeldaly097/jenkins_eldaly:v1.0'
