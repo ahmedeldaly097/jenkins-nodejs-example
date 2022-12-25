@@ -1,2 +1,2 @@
 # jenkins nodejs example
-testing jenkins and make a pipeline using javascript application to make organized steps.
+testing jenkins and make a pipeline to manage  javascript application and make organized steps.
